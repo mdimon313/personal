@@ -35,7 +35,7 @@ function BannerContent() {
         </a>
       </div>
       <h1>Mohammd Imon</h1>
-      <p>i'm Imon, graphics designer & front-end developer frasher</p>
+      <p>i'm Imon, front-end developer frasher</p>
       <div className="buttns">
         <Link to={"/about"} className="banner_btn">
           About Us
