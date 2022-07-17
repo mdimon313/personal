@@ -4,34 +4,34 @@ import { Link } from "react-router-dom";
 function BannerContent() {
   return (
     <div className="banner_content">
-      <div class="banner-icons">
+      <div className="banner-icons">
         <a
           href="https://www.facebook.com/imon313/"
           target="_blank"
           rel="noreferrer"
         >
-          <i class="fab fa-facebook-f"></i>
+          <i className="fab fa-facebook-f"></i>
         </a>
         <a
           href="https://twitter.com/MohammdImon"
           target="_blank"
           rel="noreferrer"
         >
-          <i class="fab fa-twitter"></i>
+          <i className="fab fa-twitter"></i>
         </a>
         <a
           href="https://www.instagram.com/mohammdimon313/"
           target="_blank"
           rel="noreferrer"
         >
-          <i class="fab fa-instagram"></i>
+          <i className="fab fa-instagram"></i>
         </a>
         <a
           href="https://www.linkedin.com/in/mohammd-imon-313im/"
           target="_blank"
           rel="noreferrer"
         >
-          <i class="fab fa-linkedin-in"></i>
+          <i className="fab fa-linkedin-in"></i>
         </a>
       </div>
       <h1>Mohammd Imon</h1>

@@ -88,19 +88,39 @@ a {
 // Nav menu components
 
 .main_menu {
-  width: 100%;
-  padding: 20px 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9;
-  background-color: #1f223587;
-  backdrop-filter: blur(6px);
+  & .nav_mobile_menu {
+    position: fixed;
+    right: 50px;
+    top: 30px;
+    cursor: pointer;
+    z-index: 9;
+    user-select: none;
+    display: none;
+
+    & i {
+      font-size: 20px;
+      transform: scale(1.4);
+      color: $primary-white;
+      user-select: none;
+    }
+  }
+  @media (max-width: 768px) {
+    & .nav_mobile_menu {
+      display: block;
+    }
+  }
 
   & ul {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    z-index: 9;
+    background-color: #1f223587;
+    backdrop-filter: blur(6px);
 
     & li {
       margin: 0 10px;
@@ -112,14 +132,50 @@ a {
         transition: all 0.3s ease-in;
         font-weight: $w-semibold;
         &:hover {
-          text-decoration: line-through;
           color: $secendary-alt;
         }
       }
       & .active {
         color: $secendary-alt;
-        text-decoration: line-through;
       }
+    }
+  }
+  @media (max-width: 768px) {
+    & ul {
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: 0 !important;
+      width: 40%;
+      height: 100vh;
+      justify-content: start;
+      transform: translateX(100%);
+      transition: all 0.3s ease-in-out;
+      & li {
+        margin: 10px;
+
+        &:nth-child(1) {
+          margin-top: 4rem;
+        }
+
+        & .nav_link {
+          font-weight: 600;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  & ul.active {
+    transform: translateX(0);
+  }
+  @media (max-width: 600px) {
+    & ul {
+      width: 60%;
+    }
+  }
+  @media (max-width: 330px) {
+    & ul {
+      width: 100%;
     }
   }
 }
@@ -228,6 +284,10 @@ a {
     @media (max-width: 1024px) {
       grid-template-columns: 1fr 1fr;
 
+      & .banner_content h1 {
+        font-size: 2.9rem;
+      }
+
       & .banner_img img {
         width: 100%;
         transform: scale(1);
@@ -241,19 +301,22 @@ a {
     @media (max-width: 768px) {
       grid-template-columns: 1fr;
 
+      & .banner_content h1 {
+        font-size: 3rem;
+      }
+
       & .banner_img img {
         width: 100%;
         display: none;
       }
 
       & .banner_content {
-        // place-items: center;
         justify-content: center;
       }
     }
     @media (max-width: 425px) {
       & .banner_content h1 {
-        font-size: 3.2rem;
+        font-size: 2.6rem;
       }
       & .banner_content p {
         font-size: 14px;
@@ -261,7 +324,7 @@ a {
     }
     @media (max-width: 375px) {
       & .banner_content h1 {
-        font-size: 45px;
+        font-size: 35px;
       }
       & .banner_content p {
         font-size: 13px;
@@ -272,7 +335,7 @@ a {
         padding: 0;
       }
       & .banner_content h1 {
-        font-size: 40px;
+        font-size: 33px;
       }
       & .banner_content .buttns .banner_btn {
         margin: 0 5px;
@@ -406,7 +469,7 @@ a {
 
 .portfolio_card_wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   column-gap: 16px;
   row-gap: 16px;
 
@@ -414,53 +477,102 @@ a {
     border-radius: 10px;
     background-color: #ffff;
     overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+
+    & span.on_going {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 5;
+      padding: 5px;
+      background-color: $secendary;
+      color: $primary-white;
+      border-radius: 15px;
+      animation: onGoing 0.3s ease-in-out infinite backwards alternate;
+
+      @keyframes onGoing {
+        form {
+          background-color: $secendary;
+        }
+        to {
+          background-color: $secendary-alt;
+        }
+      }
+    }
 
     & img {
       width: 100%;
-      height: 250px;
+      height: 100%;
       display: block;
     }
 
     & .card_meta {
       padding: 10px;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: #cbcbcb12;
+      backdrop-filter: blur(2px);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: all 0.3s ease-in-out;
+      display: grid;
+      place-items: center;
 
       & h3 {
-        color: #282828;
-        font-size: 20px;
+        color: $primary;
+        font-size: 18px;
         text-transform: capitalize;
         margin: 10px 0;
         font-family: "Open Sans";
+        font-size: 20px;
+        font-weight: 700;
       }
 
       & p {
-        color: #363636;
+        color: $primary;
         margin-bottom: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        &::selection {
+          background-color: $secendary-alt;
+          color: $primary-white;
+        }
       }
 
       & a {
-        background-color: #2f3248;
+        border: 1px solid #2f3248;
         display: grid;
-        color: #fff;
+        width: 100%;
+        color: $primary;
         place-items: center;
         padding: 6px 0;
         border-radius: 5px;
+        font-weight: 700;
 
         &:hover {
           background-color: #23263a;
+          color: $primary-white;
         }
       }
+    }
+    &:hover .card_meta {
+      transform: scaleY(1);
     }
   }
 
   // Responsive Brackpoints
   @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
+    columns: 2;
   }
   @media (max-width: 425px) {
-    grid-template-columns: 1fr;
+    columns: 1;
   }
-  @media (max-width: 320px) {
-  }
+  // @media (max-width: 320px) {
+  // }
 }
 // Profile Component end
 
@@ -556,8 +668,10 @@ a {
       }
       & textarea {
         display: block;
-        width: 100%;
-        height: 100px;
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 100px;
+        max-height: 200px;
         padding: 8px;
         color: $primary-white;
         resize: vertical;

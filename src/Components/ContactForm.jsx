@@ -11,9 +11,9 @@ function ContactForm({ btnIcon }) {
             <FormInput
               type={"text"}
               name="name"
-              inputId="name"
               placeholder={"Jhon Doe"}
-              autocomplete="off"
+              autoComplete="off"
+              id="name"
             />
           </div>
           <div className="mail">
@@ -21,49 +21,49 @@ function ContactForm({ btnIcon }) {
             <FormInput
               type={"email"}
               name="email"
-              inputId="email"
               placeholder={"example@gmail.com"}
-              autocomplete="off"
+              autoComplete="off"
+              id="email"
             />
           </div>
         </div>
         <div className="msg">
           <label htmlFor="msg">Message</label>
-          <textarea name="msg" id="msg" placeholder="your message"></textarea>
+          <textarea name="msg" placeholder="your message" id="msg"></textarea>
         </div>
         <button>
           Send <i className={btnIcon}></i>{" "}
         </button>
       </form>
 
-      <div class="contact_icons">
+      <div className="contact_icons">
         <a
           href="https://www.facebook.com/imon313/"
           target="_blank"
           rel="noreferrer"
         >
-          <i class="fab fa-facebook-f"></i>
+          <i className="fab fa-facebook-f"></i>
         </a>
         <a
           href="https://twitter.com/MohammdImon"
           target="_blank"
           rel="noreferrer"
         >
-          <i class="fab fa-twitter"></i>
+          <i className="fab fa-twitter"></i>
         </a>
         <a
           href="https://www.instagram.com/mohammdimon313/"
           target="_blank"
           rel="noreferrer"
         >
-          <i class="fab fa-instagram"></i>
+          <i className="fab fa-instagram"></i>
         </a>
         <a
           href="https://www.linkedin.com/in/mohammd-imon-313im/"
           target="_blank"
           rel="noreferrer"
         >
-          <i class="fab fa-linkedin-in"></i>
+          <i className="fab fa-linkedin-in"></i>
         </a>
       </div>
     </div>

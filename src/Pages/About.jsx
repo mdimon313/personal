@@ -13,16 +13,10 @@ function About() {
           <AboutMe />
         </div>
         <div className="skill_content">
-          {/* <Skill skillName={"html"} per={"99%"} />
-          <Skill skillName={"css"} per={"95%"} />
-          <Skill skillName={"javascript"} per={"75%"} />
-          <Skill skillName={"reactjs"} per={"60%"} /> */}
-          <img src="./images/skill/html.png" alt="" srcset="" />
-          <img src="./images/skill/css.png" alt="" srcset="" />
-          <img src="./images/skill/JS.jpg" alt="" srcset="" />
-          <img src="./images/skill/physics.png" alt="" srcset="" />
-          <img src="./images/skill/php.png" alt="" srcset="" />
-          <img src="./images/skill/laravel.png" alt="" srcset="" />
+          <img src="./images/skill/html.png" alt="html" />
+          <img src="./images/skill/css.png" alt="css" />
+          <img src="./images/skill/JS.jpg" alt="javascript" />
+          <img src="./images/skill/react.png" alt="reactjs" />
         </div>
       </div>
     </Section>
